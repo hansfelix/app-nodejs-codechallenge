@@ -18,7 +18,7 @@ model Transaction {
   value                   Float
   createdAt               DateTime          @default(now())
   transactionStatus       TransactionStatus @default(pending) // Default status for created transantion
-  validatedByAntiFraud    Boolean           @default(false)
+  validatedByAntiFraud    Boolean           @default(false) // Indicate if this transaction was validated
 }
 
 enum TransactionStatus {
