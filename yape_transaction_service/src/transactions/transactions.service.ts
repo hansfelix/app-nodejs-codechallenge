@@ -13,10 +13,14 @@ export class TransactionsService {
       data: createTransactionDto,
     });
 
-    await this.producerService.produce({
-      topic: 'test', //process.env.TOPIC
-      messages: [{ value: JSON.stringify(data) }],
-    });
+    try {
+      await this.producerService.produce({
+        topic: 'test', //process.env.TOPIC
+        messages: [{ value: JSON.stringify(data) }],
+      });
+    } catch (e) {
+      console.error('message not send');
+    }
 
     return data;
   }

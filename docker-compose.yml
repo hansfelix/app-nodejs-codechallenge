@@ -23,3 +23,22 @@ services:
       KAFKA_JMX_PORT: 9991
     ports:
       - 9092:9092
+  yape_transaction_service:
+    build:
+      context: ./yape_transaction_service
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+    - '.:/usr/src/app/'
+    ports:
+      - '3000:3000'
+  yape_anti-fraud_service:
+    build:
+      context: ./yape_anti-fraud_service
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    volumes:
+    - '.:/usr/src/app/'
+    ports:
+      - '3001:3001'
+
