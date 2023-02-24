@@ -11,6 +11,11 @@ export class TransactionsController {
     return await this.transactionsService.create(createTransactionDto);
   }
 
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.transactionsService.findOne(id);
+  }
+
   @Patch('approve/:id')
   approve(@Param('id') id: string) {
     return this.transactionsService.update(id, 'approved');
