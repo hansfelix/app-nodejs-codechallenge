@@ -22,7 +22,7 @@ model Transaction {
 }
 
 enum TransactionStatus {
-  pending
-  approved
-  rejected
+  pending 
+  approved 
+  rejected 
 }
